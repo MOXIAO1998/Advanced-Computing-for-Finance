@@ -41,8 +41,12 @@ void multiply_mv_col_major(const double* matrix, int rows, int cols, const doubl
     }
 
     for (int r = 0; r < rows; ++r) {
-        result[r] = 0;
-        for (int c = 0; c < cols; ++c) {
+        result[r] = 0.0;
+    }
+
+
+    for (int c = 0; c < cols; ++c) {
+        for (int r = 0; r < rows; ++r) {
             result[r] += matrix[r + c*rows] * vector[c];
         }
     }
